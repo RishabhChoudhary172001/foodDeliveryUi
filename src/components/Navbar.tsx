@@ -22,16 +22,16 @@ const Navbar = () => {
         ))}
       </div>
       {/* {LOGO} */}
-      <div className="md:font-bold text-xl flex-1">
+      <div className="md:font-bold text-xl flex-1 md:text-center">
         <Link  href="/">
           MASSIMO
-        </Link>
+        </Link> 
       </div>
       <div className="md:hidden">
         <Menu />
       </div>
       {/* {RIGHT LINKS} */}
-      <div className="hidden md:flex gap-4 items-center flex-1">
+      <div className="hidden md:flex gap-4 items-center justify-center flex-1">
         <div className="flex items-center gap-2 cursor-pointer bg-orange-300 px-1 rounded-md">
           <Image src="/phone.png" alt="" width={20} height={20}/>
           <span>123 456 78</span>
