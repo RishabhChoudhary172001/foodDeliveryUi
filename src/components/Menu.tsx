@@ -1,6 +1,8 @@
+'use client'
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import CartIcon from "./CartIcon";
 
 const links = [
   { id: 1, title: "Homepage", url: "/" },
@@ -12,6 +14,7 @@ const links = [
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
+  const user = false;
   return (
     <div>
       {!open ? (
@@ -31,13 +34,27 @@ const Menu = () => {
           onClick={() => setOpen(false)}
         />
       )}
-      <div className="bg-red-500 text-white absolute top-24 left-0 h-[calc(100vh-6rem)] flex items-center justify-center text-3xl">
-        {links.map((item) => (
-          <Link key={item.id} href={item.url}>
-            {item.title}
+      {open && (
+        <div className="bg-red-500 text-white absolute top-24 right-0 h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-3xl gap-8 w-full z-10 text-center">
+          {links.map((item) => (
+            <Link key={item.id} href={item.url} onClick={() => setOpen(false)}>
+              {item.title}
+            </Link>
+          ))}
+          {!user ? (
+            <Link href="/login" onClick={() => setOpen(false)}>
+              Login
+            </Link>
+          ) : (
+            <Link href="/orders" onClick={() => setOpen(false)}>
+              Orders
+            </Link>
+          )}
+          <Link href="/cart" onClick={() => setOpen(false)}>
+            <CartIcon />
           </Link>
-        ))}
-      </div>
+        </div>
+      )}
     </div>
   );
 };
