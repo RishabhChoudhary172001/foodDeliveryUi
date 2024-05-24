@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Menu from "./Menu"
 import CartIcon from './CartIcon';
 import Image from 'next/image';
+import Logo from './Logo';
 
 const links = [
   { id: 1, title: "Homepage", url: "/" },
@@ -22,11 +23,7 @@ const Navbar = () => {
         ))}
       </div>
       {/* {LOGO} */}
-      <div className="md:font-bold text-xl flex-1 md:text-center">
-        <Link  href="/">
-          MASSIMO
-        </Link> 
-      </div>
+      <Logo/>
       <div className="md:hidden">
         <Menu />
       </div>
